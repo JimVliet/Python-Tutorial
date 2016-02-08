@@ -10,7 +10,7 @@ class Sudoku:
 		print("012345678")
 		for i in range(rij):
 			for j in range(kolom):
-				if(self.Map[j][i] == -1):
+				if(int(self.Map[j][i]) == 0):
 					print("-", end="")
 				else:
 					print(self.Map[j][i], end="")
