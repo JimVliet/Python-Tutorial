@@ -1,8 +1,11 @@
 import Sudoku
-rij = 9
-kolom = 9
+#Standaard functies
+def printMatrix(matrix):
+	for i in range(len(matrix[0])):
+		for j in range(len(matrix)):
+			print(matrix[j][i], end="")
+		print("")
 
-Matrix = [[-1 for y in range(rij)] for x in range(kolom)] 
 
 rowList = ['800040000',
 		   '006050009',
@@ -13,9 +16,7 @@ rowList = ['800040000',
 		   '000000001',
 		   '374000960',
 		   '000896034']
-for i in range(len(rowList)):
-	for j in range(len(rowList[i])):
-		string = rowList[i]
-		Matrix[j][i] = string[j]
-
-Sudoku.Sudoku(Matrix).print()
+Sud = Sudoku.Sudoku(rowList)
+printMatrix(Sud.getNumbers(0,2,0,2))
+print("\n \n")
+Sud.print()
