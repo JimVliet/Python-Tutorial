@@ -5,3 +5,4 @@ class Vak:
 		self.Y = yCoord
 		self.Sudoku = Sud
 		self.Numbers = [None] *9
+	

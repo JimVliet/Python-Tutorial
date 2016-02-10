@@ -22,8 +22,3 @@ class Sudoku:
 				else:
 					print(self.Map[j][i], end="")
 			print(" " + str(i))
-	def getNumber(self, xCoord, yCoord):
-		return self.Map[xCoord][yCoord]
-
-	def getNumbers(self, xStart, xEind, yStart, yEind):
-		return self.Map[xStart:(xEind+1),yStart:(yEind+1)]
