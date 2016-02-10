@@ -19,7 +19,6 @@ def start():
 		   '374000960',
 		   '000896034']
 	Sud = Sudoku.Sudoku(rowList)
-	printMatrix(Sud.Map[:8][:5])
 	print("\n \n")
 	Sud.print()
 
@@ -34,4 +33,4 @@ def scoreCalc():
 	for i in range(len(priorQ)):
 		print(i, ": - ", priorQ[i][0], " - %i,%i - "%(priorQ[i][1],priorQ[i][2]), (priorQ[i][1] == 8 or priorQ[i][2] == 8))
 
-scoreCalc()
+start()
