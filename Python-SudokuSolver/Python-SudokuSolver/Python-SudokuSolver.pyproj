@@ -22,7 +22,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Vak.py">
+    <Compile Include="TestingGrounds.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VakInfo.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Python_SudokuSolver.py" />
