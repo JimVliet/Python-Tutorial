@@ -1,6 +1,7 @@
 import numpy as np
 import heapq
 import VakInfo
+import random
 def arrayToMatrix(arrayList):
 	Width = len(arrayList[1])
 	Length = len(arrayList)
@@ -12,33 +13,32 @@ def arrayToMatrix(arrayList):
 			Matrix[j][i] = number
 	return Matrix
 
-def scoreCalc():
-	scoreLijst = [0, 3, 5, 6, 7, 8]
-	priorQ = []
-	for i in scoreLijst:
-		for j in range(9):
-			heapq.heappush(priorQ, (2**i+2**j, i, j))
 
-	priorQ = heapq.nlargest(len(priorQ), priorQ)
-	for i in range(len(priorQ)):
-		print(i, ": - ", priorQ[i][0], " - %i,%i - "%(priorQ[i][1],priorQ[i][2]), (priorQ[i][1] == 8 or priorQ[i][2] == 8))
+class testClass():
+	def __init__(self, score, code):
+		self.Score = score
+		self.Code = code
 
-def printMatrix(matrix):
-	for i in range(len(matrix[0])):
-		for j in range(len(matrix)):
-			print(matrix[j][i], end="")
-		print("")
+	def __lt__(self, other):
+		return self.Score > other.Score
+	
+	def __repr__ (self):
+		return "{%i,%i}"%(self.Score, self.Code)
 
 def testFunc():
-	vLijst = np.empty((2,2), dtype=VakInfo.VakInfo)
-	vLijst[0][0] = VakInfo.VakInfo(1, 0, 10)
-	vLijst[1][0] = VakInfo.VakInfo(1, 1, 20)
-	vLijst[0][1] = VakInfo.VakInfo(2, 0, 30)
-	vLijst[1][1] = VakInfo.VakInfo(2, 1, 40)
-	priorQ = np.ravel(vLijst)
-	priorQ = heapq.nlargest(len(priorQ), priorQ)
-	print(priorQ)
-	print(heapq.heappop(priorQ))
-	vLijst[1][1].Score = 0
-	print(heapq.heappop(priorQ))
-	print(priorQ)
+	
+	for corLoc in range(9):
+		for VakNum in range(9):
+			rijNum = (VakNum//3)*3
+			kolomNum = (VakNum%3)*3
+			xCorLoc = kolomNum + (corLoc%3)
+			yCorLoc = rijNum + (corLoc//3)
+			print("%i,%i + [%i,%i]"%(corLoc, VakNum, xCorLoc, yCorLoc))
+
+def sliceTest():
+	lijst = np.arange(81).reshape((9,9))
+	VakNum = 8
+	rijNum = (VakNum//3)*3
+	kolomNum = (VakNum%3)*3
+	print(lijst)
+	print(lijst[kolomNum:kolomNum + 3,rijNum:rijNum + 3])

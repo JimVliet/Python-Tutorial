@@ -15,11 +15,10 @@ def start():
 		   '374000960',
 		   '000896034']
 	Sud = Sudoku.Sudoku(TG.arrayToMatrix(rowList))
-	print("\n \n")
 	Sud.print()
 	print("\n \n")
-	Sud.updateAll()
-	Sud.updateQueue()
-	Sud.printQueue()
+	Sud.solve()
+	print("\n \n")
+	Sud.print()
 
 start()
