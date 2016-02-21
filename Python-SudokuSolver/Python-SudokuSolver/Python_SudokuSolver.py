@@ -2,10 +2,10 @@ import Sudoku
 import numpy as np
 import heapq
 import TestingGrounds as TG
+import time
 #Standaard functies
 
-def start():
-	rowList = ['800040000',
+rowList = ['800040000',
 		   '006050009',
 		   '109070300',
 		   '400160000',
@@ -14,11 +14,10 @@ def start():
 		   '000000001',
 		   '374000960',
 		   '000896034']
-	Sud = Sudoku.Sudoku(TG.arrayToMatrix(rowList))
-	Sud.print()
-	print("\n \n")
-	Sud.solve()
-	print("\n \n")
-	Sud.print()
-
-start()
+matrix = TG.arrayToMatrix(rowList)
+startingTime = time.time()
+Sud = Sudoku.Sudoku(matrix)
+Sud.solve()
+timeDif = time.time() - startingTime
+print("Time to run: " + str(timeDif))
+Sud.print()
